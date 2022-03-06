@@ -51,3 +51,5 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+ESS9e03_1.csv
