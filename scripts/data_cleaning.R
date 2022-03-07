@@ -11,6 +11,12 @@
 library(haven)
 library(tidyverse)
 library(dplyr)
+library(janitor) # Helps clean datasets
+library(tidyr) # Helps make tidy datasets
+library(ggplot2)
+library(lubridate)
+library(gridExtra)
+library(scales)
 # Read in the raw data. 
 raw_data <- readr::read_csv("../inputs/data/ESS9e03_1.csv"
 )
@@ -27,6 +33,14 @@ reduced_data <-
 # national and ethnic identity
 europe_data <- select(raw_data, c(1:6, 115:200))
 names(europe_data)
+
+# Write the Europe data to our raw data csv
+write_csv(
+  x=europe_data,
+  file = "../inputs/data/raw_data.csv"
+)
+  
+
 
 rm(raw_data)
 
