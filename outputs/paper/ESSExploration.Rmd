@@ -1,6 +1,6 @@
 ---
 title: "ESS Exploration *Need to Change*"
-author: Basil, Tamsen, Ashas 
+author: Basil Wong, Tamsen Yau, Ashas Memon
 thanks: "Code and data are available at: https://github.com/ashasmemon/ESSExploration"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 abstract: "This report aims to examine ... "
