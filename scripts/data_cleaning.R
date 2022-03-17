@@ -74,7 +74,7 @@ survey_data <-
         'DE' = 'Germany',
         'GR' = 'Greece',
         'HU' = 'Hungary',
-        'IE' = 'Ireland, Republic of (EIRE)',
+        'IE' = 'Ireland',
         'IT' = 'Italy',
         'IS' = 'Iceland',
         'LV' = 'Latvia',
@@ -82,7 +82,7 @@ survey_data <-
         'SK' = 'Slovakia',
         'SI' = 'Slovenia',
         'ES' = 'Spain',
-        'GB' = 'United Kingdom',
+        'GB' = 'UK',
         'PT' = 'Portugal',
         'PL' = 'Poland',
         'NL' = 'Netherlands',
@@ -118,13 +118,32 @@ daily_activities <-
 temp <-  
   summarise(group_by(survey_data, cntry, hlthhmp), count=n())
  
-  
-
 
 daily_activities  
 
+# get the data of the cntry happiness and summarise them with their mean
+# rename cntry to region
+cntry_happiness <- subset(survey_data, select = c(cntry, happy))
+mapping <- 
+  cntry_happiness %>%
+  drop_na(happy) %>%
+  group_by(cntry) %>%
+  summarise_at(vars(happy), list(score = mean)) %>%
+  rename(region = cntry)
+
+mapdata <- map_data("world")
+view(mapdata)
+mapdata <- left_join(mapdata, mapping, by='region')
 
 
+mapdata1 <- mapdata %>% filter(!is.na(mapdata$score))
 
+map1 <- ggplot(mapdata1, aes(x=long, y=lat, group=group)) +
+  geom_polygon(aes(fill=score), color = "black") 
+map1
+
+map2 <- map1 +scale_fill_gradient(name = "score", low = "cyan", high = "purple", na.value = "grey50") +
+  theme_void()
+map2
 
 
