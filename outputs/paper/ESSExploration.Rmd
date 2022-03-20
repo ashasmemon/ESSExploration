@@ -11,13 +11,23 @@ bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE, show_col_types = FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse)
-library(dplyr)
-library(knitr)
-library(kableExtra)
-```
+knitr::opts_chunk$set(echo = FALSE)
+# library(tidyr)
+# library(tidyverse)
+# library(dplyr)
+# library(knitr)
+# library(kableExtra)
 
+source("../../scripts/data_cleaning.R")
+
+```
+# Introduction
+
+The European Social Survey (ESS), developed in 1995 was created to measure social attitudes, beliefs and behavior patterns across Europe and its intended to be used by academics, researchers and policy makers. The main goals of the ESS are to collect data on social structure, political attachment, citizen’s perceptions and judgement towards their societies. In doing so, it aims to determine how Europe’s social and political views are changing and to promote a high standard of research in social sciences across Europe. Every two years, they also conduct face-to-face interviews with randomly selected individuals using various random probability methods. These elected few individuals are asked over 200 questions about socio-demographics which are then analysed by age, gender, economic status, ethnicity among other factors to understand the differences among each demographic (https://www.europeansocialsurvey.org/about/ ). Results from all participating countries are pooled together and individuals made anonymous so the resulting data can be made publicly available. 
+
+Since its establishment, the ESS won the Descartes Prize for Research & Science communication in 2005 and awarded the European Research Infrastructure Consortium (ERIC) in 2013 thus becoming a legal entity recognized by governments of the participating countries. Data collected by ESS is used across the world to not only advance scientific discussions but also to improve the quality of survey methodology and the improve the data collection methods and to develop a better understanding on social sciences in terms of measuring, data collection and in doing so promote positive change around the world (https://www.europeansocialsurvey.org/about/ ).
+
+ 
 # Questionaire Discussion
 
 Some questions present in the European Social Survey (ESS) aim to quantify qualitative measures such as those asking about happiness and emotions. Each respondent can select from a scale of 00-10 and they also have the option for “refusal” or “don’t know”. The benefit for the latter two options provides a convenience because all questions responded with “refusal” can be discarded (Verify how refusals are handled in this survey). A better option for “refusal” is “Don’t know” because participants are more likely to respond with a “Don’t know” as compared to a “refusal”. A benefit to this is that this particular question can be ignored rather than discarding all information from all questions for a particular respondent (IncludeNeutralPointInQuestionsCitation).
@@ -31,3 +41,13 @@ Furthermore, there are also some questions which require a binary response (yes 
 Along with some shortcomings discussed above, there is flexibility in this questionnaire because it provides a wide range of options for the respondent to choose from. This limits the chances of there being any common options left out. In addition to this, various questions, including C19, C21, C23, C24, C25, C28, C30 also allow for the respondent to enter their own response if their response cannot be categorized among the provided options or if the question requires a response that will be different for each person such as C24 asking about a the year the respondent came to the particular country. Refer to table for the corresponding questions. 
 
 
+```{r happinessMap, include=FALSE, show_col_types = FALSE}
+happiness_map
+
+```
+
+
+```{r happinessBar, include=FALSE, show_col_types = FALSE}
+happiness
+
+```

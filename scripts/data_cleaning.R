@@ -8,6 +8,7 @@
 # - Need to have downloaded the ESS data and saved it to inputs/data
 # - Don't forget to gitignore it!
 # Please follow the instructions in README before running the code
+# comment out lines 12 - 31
 install.packages("haven")
 install.packages("tidyverse")
 install.packages("dplyr")
@@ -30,10 +31,10 @@ library(scales)
 library(knitr)
 
 
-
+# set working directory to project directory: 
+# session > set working directory > To Project Directory 
 # Read in the raw data. 
-raw_data <- readr::read_csv("../inputs/data/ESS9e03_1.csv"
-)
+raw_data <- readr::read_csv("../../inputs/data/ESS9e03_1.csv")
 
 # Just keep some variables that may be of interest (change 
 # this depending on your interests)
@@ -51,12 +52,12 @@ names(europe_data)
 # Write the Europe data to our raw data csv
 write_csv(
   x=europe_data,
-  file = "../inputs/data/raw_data.csv"
+  file = "../../inputs/data/raw_data.csv"
 )
   
 # Clean names
 survey_data <-
-  read.csv("../inputs/data/raw_data.csv")
+  read.csv("../../inputs/data/raw_data.csv")
 
 # Clear the memory of the raw and reduced data
 rm(raw_data)
