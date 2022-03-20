@@ -84,6 +84,16 @@ happiness_map
 
 ```
 
+While examining the social wellbeing from the ESS, using the Happiness Index is a natural compassion because the ESS also aims to access respondent’s happiness level. According to the Happiness Index; a comprehensive survey tool which accesses the happiness and wellbeing along with satisfaction and conditions of life (@HappinessIndexCitation). It ranks national happiness based on respondents’ responses and tries to correlate this to various life factors which could be responsible, including income, job satisfaction, education level and healthcare just to name a few. 
+
+As displayed on the European map displayed above \@ref(fig:happinessMap), Denmark is ranked with the highest happiest rating among all other countries who participated in the ESS. This observation is not surprising because Denmark has consistently ranked in the top 3 for over a decade on the Happiness Index (https://countryeconomy.com/demography/world-happiness-index/denmark ). According to USA Today, “Denmark is ranked as the happiest country in the world with 33 hours work in a week, $20 minimum wages, free universities and medical care, free childcare and low level of Corruption”, (@DenmarkHappiestCountryCitation).
+
+Although Denmark is ranked as the highest in terms of happiness, most other European countries are following close behind, including Switzerland, Sweden and Iceland. An overall high ranking for these countries can is attributed to several factors including income, job satisfaction and healthcare.
+
+
+\newpage
+
+# Appendix
 
 ```{r happinessBar, include=FALSE, show_col_types = FALSE}
 happiness
