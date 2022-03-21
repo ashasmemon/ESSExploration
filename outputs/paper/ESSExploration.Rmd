@@ -43,9 +43,9 @@ raw_data <- readr::read_csv("../../inputs/data/ESS9e03_1.csv")
 ```
 # Introduction
 
-The European Social Survey (ESS), developed in 1995 was created to measure social attitudes, beliefs and behavior patterns across Europe and its intended to be used by academics, researchers and policy makers. The main goals of the ESS are to collect data on social structure, political attachment, citizen’s perceptions and judgement towards their societies. In doing so, it aims to determine how Europe’s social and political views are changing and to promote a high standard of research in social sciences across Europe. Every two years, they also conduct face-to-face interviews with randomly selected individuals using various random probability methods. These elected few individuals are asked over 200 questions about socio-demographics which are then analysed by age, gender, economic status, ethnicity among other factors to understand the differences among each demographic (https://www.europeansocialsurvey.org/about/ ). Results from all participating countries are pooled together and individuals made anonymous so the resulting data can be made publicly available. 
+The European Social Survey (ESS), developed in 1995 was created to measure social attitudes, beliefs and behavior patterns across Europe and its intended to be used by academics, researchers and policy makers. The main goals of the ESS are to collect data on social structure, political attachment, citizen’s perceptions and judgement towards their societies. In doing so, it aims to determine how Europe’s social and political views are changing and to promote a high standard of research in social sciences across Europe. Every two years, they also conduct face-to-face interviews with randomly selected individuals using various random probability methods. These elected few individuals are asked over 200 questions about socio-demographics which are then analysed by age, gender, economic status, ethnicity among other factors to understand the differences among each demographic (@ESSAboutCitation ). Results from all participating countries are pooled together and individuals made anonymous so the resulting data can be made publicly available. 
 
-Since its establishment, the ESS won the Descartes Prize for Research & Science communication in 2005 and awarded the European Research Infrastructure Consortium (ERIC) in 2013 thus becoming a legal entity recognized by governments of the participating countries. Data collected by ESS is used across the world to not only advance scientific discussions but also to improve the quality of survey methodology and the improve the data collection methods and to develop a better understanding on social sciences in terms of measuring, data collection and in doing so promote positive change around the world (https://www.europeansocialsurvey.org/about/ ).
+Since its establishment, the ESS won the Descartes Prize for Research & Science communication in 2005 and awarded the European Research Infrastructure Consortium (ERIC) in 2013 thus becoming a legal entity recognized by governments of the participating countries. Data collected by ESS is used across the world to not only advance scientific discussions but also to improve the quality of survey methodology and the improve the data collection methods and to develop a better understanding on social sciences in terms of measuring, data collection and in doing so promote positive change around the world (@ESSAboutCitation).
 
 ```{r, echo=FALSE, warning=FALSE, show_col_types = FALSE}
 question_code <- c("C1",
@@ -94,11 +94,11 @@ country_codes_df %>%
  
 # Questionaire Discussion
 
-Some questions present in the European Social Survey (ESS) aim to quantify qualitative measures such as those asking about happiness and emotions. Each respondent can select from a scale of 00-10 and they also have the option for “refusal” or “don’t know”. The benefit for the latter two options provides a convenience because all questions responded with “refusal” can be discarded (Verify how refusals are handled in this survey). A better option for “refusal” is “Don’t know” because participants are more likely to respond with a “Don’t know” as compared to a “refusal”. A benefit to this is that this particular question can be ignored rather than discarding all information from all questions for a particular respondent (@IncludeNeutralPointInQuestionsCitation).
+Some questions present in the European Social Survey (ESS) aim to quantify qualitative measures such as those asking about happiness and emotions. Each respondent can select from a scale of 00-10 and they also have the option for “refusal” or “don’t know”. The benefit for the latter two options provides a convenience because all questions responded with “refusal” can be discarded. A better option for “refusal” is “Don’t know” because participants are more likely to respond with a “Don’t know” as compared to a “refusal”. A benefit to this is that this particular question can be ignored rather than discarding all information from all questions for a particular respondent (@IncludeNeutralPointInQuestionsCitation).
 
-It is however a good measure for determining how someone perceives their current condition with some limitations. For example, Question C1 (Taking all things together, how happy would you say you are?). Questions C9 and C10 aim to quantify how emotionally attached the respondent feels towards their own country and Europe respectively, see table \@ref(tab:subjectiveQuestionsTable) for questions corresponding to each code. All three of these questions expect a response on a scale from 00-10 but it is challenging to compare the same response for two people. If two people select 06 for question C1, how can we be sure that they are equally happy? Similarly, how can policymakers be sure that someone who selected 06 is in fact less happy than someone who selects 07 or is happier than someone who selects 05. Extending this further, how can one be certain that someone who select 06 is in fact twice as happy as someone who selects 03. Additionally, for question C9 and C10, how can we compare two people who both selected 06 for their emotional attachment to their country and Europe, how do we ensure that both people are equally emotionally attached given the same response? (@ProblemsWithMeasuringHappinessCitation)
+It is however a good measure for determining how someone perceives their current condition with some limitations. For example, Question C1 (Taking all things together, how happy would you say you are?). Questions C9 and C10 aim to quantify how emotionally attached the respondent feels towards their own country and Europe respectively, see table \@ref(tab:subjectiveQuestionsTable) for questions corresponding to each code. All three of these questions expect a response on a scale from 00-10 but it is challenging to compare the same response for two people. If two people select 06 for question C1, how can policymakers be sure that they are equally happy? Similarly, how can policymakers be sure that someone who selected 06 is in fact less happy than someone who selects 07 or is happier than someone who selects 05. Extending this further, how can one be certain that someone who select 06 is in fact twice as happy as someone who selects 03. Additionally, for question C9 and C10, how can we compare two people who both selected 06 for their emotional attachment to their country and Europe, how do we ensure that both people are equally emotionally attached given the same response? (@ProblemsWithMeasuringHappinessCitation)
 
-Trying to quantify such qualitative measures is difficult because the questioned mentioned above (Include these questions in a table) require a subjective opinion which may depend on a person’s own socioeconomic status, culture, environment, psychological or their mood at this particular instance. All of these lead to ambiguity in the responses for such questions.
+Trying to quantify such qualitative measures is difficult because the questioned mentioned in table \@ref(tab:subjectiveQuestionsTable) require a subjective opinion which may depend on a person’s own socioeconomic status, culture, environment, psychological or their mood at this particular instance. All of these lead to ambiguity in the responses for such questions.
 
 Furthermore, there are also some questions which require a binary response (yes and no) to avoid any ambiguity in the responses. For example, question C13 and C18 (refer to table \@ref(tab:subjectiveQuestionsTable)) whether the respondent considers themselves to be religious and whether they would describe themselves a member of a group that is discriminated against in their country respectively (see figure). Although a yes/no style question removes any ambiguity it might raise additional questions when the respondent does not fully match the criteria for the provided possible responses. In the case of question C13, if someone is religious sometimes, they might consider themselves somewhere in between the “yes” and “no” options. But given the current responses of “yes”, “no” “refusal” and “Don’t know”, they might lean towards selecting “Don’t know” because they don’t see an option that best describes their response. (@YesNoQuestionsCitation )
 
@@ -213,13 +213,9 @@ happiness_map
 
 ## Level of happiness
 
-While examining the social wellbeing from the ESS, using the Happiness Index is a natural compassion because the ESS also aims to access respondent’s happiness level. According to the Happiness Index; a comprehensive survey tool which accesses the happiness and wellbeing along with satisfaction and conditions of life (@HappinessIndexCitation). It ranks national happiness based on respondents’ responses and tries to correlate this to various life factors which could be responsible, including income, job satisfaction, education level and healthcare just to name a few. 
+A significant measure for a person’s social wellbeing and quality of life is their perceived happiness and as such, it was the first question asked in section C of the ESS (refer to C1 in table \@ref(tab:subjectiveQuestionsTable).  From the map in figure \@ref(fig:happinessMap), the majority of European countries who participated in the ESS are very happy with a score of 7 of greater with a few outliers scoring less than 7. For those 3 countries that scored less than 7, all of them have a score between 5 and 7. From this we can interpret that the vast majority of European countries are fairly happy with a few outliers that are not; all of which are located in south eastern Europe. 
 
-As displayed on the European map displayed above \@ref(fig:happinessMap), Denmark is ranked with the highest happiest rating among all other countries who participated in the ESS. This observation is not surprising because Denmark has consistently ranked in the top 3 for over a decade on the Happiness Index (@BulgariaHappinessIndexCitation ). According to USA Today, “Denmark is ranked as the happiest country in the world with 33 hours work in a week, $20 minimum wages, free universities and medical care, free childcare and low level of Corruption”, (@DenmarkHappiestCountryCitation).
-
-Although Denmark is ranked as the highest in terms of happiness, most other European countries are following close behind, including Switzerland, Sweden and Iceland. An overall high ranking for these countries can is attributed to several factors including income, job satisfaction and healthcare.
-
-In contrast to above, Bulgaria least happy country in the ESS because not only is it one of the poorest countries in the world with a Gross Domestic Product (GDP) per capita as 12.77 Euros. Currently 65% of the population is unable to cover the living expenses because of a high indebtedness of state-owned energy companies as well as poor infrastructure @BulgariaLowGDPCitation ). Bulgaria also has one of the smallest populations in Europe but over the past decade the population has declined by more than 11% as determined by Bulgaria’s National Statistical Institute (@BulgariaDecliningPopulationCitation). The low GDP combined with a declining population due to a low birthrate has led to an increasingly low socioeconomic score. This is potentially dangerous for a countries economic and demographic growth because there are less newborns to replace the aging workforce, which is another factor reducing the GDP.
+In contrast, countries with a high happiness score are located in Northern Europe and the rest of Europe (eastern and central) is still fairly happy but they lie in between. Of all the countries, Denmark, a geographically small country located in central Europe has the highest happiness score among all highlighted in dark purple in in figure \@ref(fig:happinessMap). Refer to figure \@ref(fig:happinessBar) in the Appendix for a relative comparison of happiness with named countries. The country with the lowest happiness score, is Bulgaria highlighted in cyan in figure \@ref(fig:happinessMap).
 
 
 ```{r, echo=FALSE, warning=FALSE,show_col_types = FALSE}
@@ -375,6 +371,22 @@ However if we look at the graphs of people's religion or denomination belongings
 
 \newpage
 
+# Discussion
+
+## Meaure of Happiness
+
+While examining the social wellbeing from the ESS, using the Happiness Index is a natural compassion because the ESS also aims to access respondent’s happiness level. According to the Happiness Index; a comprehensive survey tool which accesses the happiness and wellbeing along with satisfaction and conditions of life (@HappinessIndexCitation). It ranks national happiness based on respondents’ responses and tries to correlate this to various life factors which could be responsible, including income, job satisfaction, education level and healthcare just to name a few. 
+
+As displayed on the European map displayed above \@ref(fig:happinessMap), Denmark is ranked with the highest happiest rating among all other countries who participated in the ESS. This observation is not surprising because Denmark has consistently ranked in the top 3 for over a decade on the Happiness Index (@BulgariaHappinessIndexCitation ). According to USA Today, “Denmark is ranked as the happiest country in the world with 33 hours work in a week, $20 minimum wages, free universities and medical care, free childcare and low level of Corruption”, (@DenmarkHappiestCountryCitation).
+
+Although Denmark is ranked as the highest in terms of happiness, most other European countries are following close behind, including Switzerland, Sweden and Iceland. An overall high ranking for these countries can is attributed to several factors including income, job satisfaction and healthcare.
+
+In contrast to above, Bulgaria least happy country in the ESS because not only is it one of the poorest countries in the world with a Gross Domestic Product (GDP) per capita as 12.77 Euros. Currently 65% of the population is unable to cover the living expenses because of a high indebtedness of state-owned energy companies as well as poor infrastructure @BulgariaLowGDPCitation ). Bulgaria also has one of the smallest populations in Europe but over the past decade the population has declined by more than 11% as determined by Bulgaria’s National Statistical Institute (@BulgariaDecliningPopulationCitation). The low GDP combined with a declining population due to a low birthrate has led to an increasingly low socioeconomic score. This is potentially dangerous for a countries economic and demographic growth because there are less newborns to replace the aging workforce, which is another factor reducing the GDP.
+
+
+\newpage
+
+
 # Appendix
 
 ```{r happinessBar, echo=FALSE, warning=FALSE,show_col_types = FALSE}
@@ -395,6 +407,17 @@ happiness <-
 happiness
 
 ```
+
+## Supplementary Survey 
+
+A [supplementary Survey](https://docs.google.com/forms/d/e/1FAIpQLSeEhal7JdTy2I54o6cHtEyG285HMTbEy5pFmOmQVP23lHOxzg/viewform?usp=sf_link) is created with supplementary questions to section C of the ESS. See below for supplementary survey questions:
+
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey1.png)
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey2.png)
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey3.png)
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey4.png)
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey5.png)
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey6.png)
 
 
 # Reference
