@@ -208,14 +208,156 @@ happiness_map <- happiness_map +scale_fill_gradient(name = "score", low = "cyan"
 happiness_map
 ```
 
+
+# Findings
+
+## Level of happiness
+
 While examining the social wellbeing from the ESS, using the Happiness Index is a natural compassion because the ESS also aims to access respondent’s happiness level. According to the Happiness Index; a comprehensive survey tool which accesses the happiness and wellbeing along with satisfaction and conditions of life (@HappinessIndexCitation). It ranks national happiness based on respondents’ responses and tries to correlate this to various life factors which could be responsible, including income, job satisfaction, education level and healthcare just to name a few. 
 
 As displayed on the European map displayed above \@ref(fig:happinessMap), Denmark is ranked with the highest happiest rating among all other countries who participated in the ESS. This observation is not surprising because Denmark has consistently ranked in the top 3 for over a decade on the Happiness Index (@BulgariaHappinessIndexCitation ). According to USA Today, “Denmark is ranked as the happiest country in the world with 33 hours work in a week, $20 minimum wages, free universities and medical care, free childcare and low level of Corruption”, (@DenmarkHappiestCountryCitation).
 
 Although Denmark is ranked as the highest in terms of happiness, most other European countries are following close behind, including Switzerland, Sweden and Iceland. An overall high ranking for these countries can is attributed to several factors including income, job satisfaction and healthcare.
 
-In contrast to above, Bulgaria least happy country in the ESS because not only is it one of the poorest countries in the world with a Gross Domestic Product (GDP) per capita as 12.77 Euros. Currently 65% of the population is unable to cover the living expenses because of a high indebtedness of state-owned energy companies as well as poor infrastructure @BulgariaLowGDPCitation ). Bulgaria also has one of the smallest populations in Europe but over the past decade the population has declined by more than 11% as determined by Bulgaria’s National Statistical Institute (@BulgariaDecliningPopulationCitation). The low GDP combined with a declining population due to a low birthrate has led to an increasingly low socioeconomic score. This is potentially dangerous for a countries economic and demographic growth because there are less newborns to replace the aging workforce, which is another factor reducing the GDP. 
+In contrast to above, Bulgaria least happy country in the ESS because not only is it one of the poorest countries in the world with a Gross Domestic Product (GDP) per capita as 12.77 Euros. Currently 65% of the population is unable to cover the living expenses because of a high indebtedness of state-owned energy companies as well as poor infrastructure @BulgariaLowGDPCitation ). Bulgaria also has one of the smallest populations in Europe but over the past decade the population has declined by more than 11% as determined by Bulgaria’s National Statistical Institute (@BulgariaDecliningPopulationCitation). The low GDP combined with a declining population due to a low birthrate has led to an increasingly low socioeconomic score. This is potentially dangerous for a countries economic and demographic growth because there are less newborns to replace the aging workforce, which is another factor reducing the GDP.
 
+## Social gatherings
+
+```{r, echo=FALSE, warning=FALSE,show_col_types = FALSE}
+# How often socially meet with friends, relatives or colleagues
+social <- subset(survey_data, select = c(cntry, sclmeet)) 
+#unique(social$sclmeet)
+
+social <- social %>%
+  group_by(sclmeet)
+
+social_table <- table(social$sclmeet)
+
+# get all the labels of the chart
+lbls <- c("Never", "Less than once a month", "Once a month", 
+            "Several times a month", "Once a week", "Several times a week",
+            "Everyday", "Refusal", "Don't know", "No answer")
+
+s_data <- data.frame(lbls, social_table)
+s_data <- subset(s_data, select = c(lbls, Freq))
+
+
+```
+
+```{r socialPieChart, fig.cap="How often socially meet with friends, relatives or colleagues", echo=FALSE, warning=FALSE,show_col_types = FALSE}
+ggplot(s_data, aes(x="", y=Freq, fill=lbls)) +
+  geom_bar(stat="identity", width=1) +
+  coord_polar("y", start=0) +
+  theme_minimal() +
+  labs(x="", y="")
+```
+
+## Emotional attachment
+
+Another important aspect that ESS examined is the emotional attachment of the people to their own countries and Europe. They examine this aspect as part of the national and ethics identity, we can tell from this data whether or not the citizens from this country are satisfied with their own government or not. People who do not support their own countries tend to be less emotional attached to them. Below we want to figure out how they feel and identity themselves about their sense of belongings to their countries and Europe. 
+
+As displayed in the two histograms in \@ref(fig:emotion), we can notice that mostly of the people are pretty attached to their own countries. The scale is from 1 to 10 with 1 being the least attached and 10 being the most attached. When it comes to their own countries, most of the responds were between 8-10 
+
+```{r, echo=FALSE, warning=FALSE,show_col_types = FALSE}
+# plot the graph of how emotionally attached to their countries and Europe
+emotional_attach <- subset(survey_data, select = c(cntry, atchctr, atcherp))
+# convert them from int to char
+emotional_attach$atchctr <- as.character(emotional_attach$atchctr)
+emotional_attach$atcherp <- as.character(emotional_attach$atcherp)
+
+# plot the graphs
+country_emo <- emotional_attach %>%
+  drop_na(atchctr) %>%
+  ggplot(mapping = aes(x=atchctr)) +
+  geom_histogram(stat= 'count', color="darkblue", fill="lightblue") +
+  theme_minimal() +
+  labs(x= "How emotionally attached to their own countries")
+
+
+eu_emo <- emotional_attach %>%
+  drop_na(atcherp) %>%
+  ggplot(mapping = aes(x=atcherp)) +
+  geom_histogram(stat= 'count', color="darkred", fill="red") +
+  theme_minimal() +
+  labs(x= "How emotionally attached to Europe")
+```
+
+```{r emotion, fig.cap = "Emotional attachment", echo=FALSE, warning=FALSE,show_col_types = FALSE}
+grid.arrange(country_emo, eu_emo, nrow=1)
+```
+
+
+
+## Religious
+
+```{r, echo=FALSE, warning=FALSE,show_col_types = FALSE}
+# get the data related to religious
+religious <- subset(survey_data, select = c(cntry, rlgdnm, rlgdnme))
+religious$rlgdnm <- as.character(religious$rlgdnm)
+religious$rlgdnme <- as.character(religious$rlgdnme)
+
+# recode the religious status so we can easily see them in the graphs
+religious <- 
+  religious %>%
+  mutate(
+    rlgdnm = 
+           recode(
+             rlgdnm,
+             '1' = 'Roman Catholic',
+             '2' = 'Protestant',
+             '3' = 'Eastern Orthodox',
+             '4' = 'Other Christian denomination',
+             '5' = 'Jewish',
+             '6' = 'Islam',
+             '7' = 'Eastern religions',
+             '8' = 'Other Non-Christian religions',
+             '66' =	'Not applicable',
+             '77' =	'Refusal',
+             '99' =	'No answer'
+             
+           ))
+
+religious <- 
+  religious %>%
+  mutate(
+    rlgdnme = 
+      recode(
+        rlgdnme,
+        '1' = 'Roman Catholic',
+        '2' = 'Protestant',
+        '3' = 'Eastern Orthodox',
+        '4' = 'Other Christian denomination',
+        '5' = 'Jewish',
+        '6' = 'Islam',
+        '7' = 'Eastern religions',
+        '8' = 'Other Non-Christian religions',
+        '66' =	'Not applicable',
+        '77' =	'Refusal',
+        '99' =	'No answer'
+        
+      ))
+
+# generate the 2 graphs using ggplot
+current_reli <- religious %>%
+  drop_na(rlgdnm) %>%
+  ggplot(mapping = aes(x=rlgdnm)) +
+  geom_histogram(stat= 'count', color="darkgoldenrod", fill="darkgoldenrod1") +
+  theme_minimal() +
+  labs(x= "Religion or denomination \n belonging to at present") +
+  coord_flip()
+
+past_reli <- religious %>%
+  drop_na(rlgdnme) %>%
+  ggplot(mapping = aes(x=rlgdnme)) +
+  geom_histogram(stat= 'count', color="green", fill="lightgreen") +
+  theme_minimal() +
+  labs(x= "Religion or denomination \n belonging to in the past") +
+  coord_flip()
+```
+
+```{r religousGraph, echo=FALSE, warning=FALSE,show_col_types = FALSE}
+grid.arrange(current_reli, past_reli, nrow=2)
+```
 
 \newpage
 
