@@ -215,7 +215,7 @@ happiness_map
 
 A significant measure for a person’s social wellbeing and quality of life is their perceived happiness and as such, it was the first question asked in section C of the ESS (refer to C1 in table \@ref(tab:subjectiveQuestionsTable).  From the map in figure \@ref(fig:happinessMap), the majority of European countries who participated in the ESS are very happy with a score of 7 of greater with a few outliers scoring less than 7. For those 3 countries that scored less than 7, all of them have a score between 5 and 7. From this we can interpret that the vast majority of European countries are fairly happy with a few outliers that are not; all of which are located in south eastern Europe. 
 
-In contrast, countries with a high happiness score are located in Northern Europe and the rest of Europe (eastern and central) is still fairly happy but they lie in between. Of all the countries, Denmark, a geographically small country located in central Europe has the highest happiness score among all highlighted in dark purple in in figure \@ref(fig:happinessMap). Refer to figure \@ref(fig:happinessBar) in the Appendix for a relative comparison of happiness with named countries. The country with the lowest happiness score, is Bulgaria highlighted in cyan in figure \@ref(fig:happinessMap).
+In contrast, countries with a high happiness score are located in Northern Europe and the rest of Europe (eastern and central) is still fairly happy but they lie in between. Of all the countries, Denmark, a geographically small country located in central Europe has the highest happiness score among all highlighted in dark purple in in figure \@ref(fig:happinessMap). Refer to figure in the Appendix for a relative comparison of happiness with named countries. The country with the lowest happiness score, is Bulgaria highlighted in cyan in figure \@ref(fig:happinessMap).
 
 
 ```{r, echo=FALSE, warning=FALSE,show_col_types = FALSE}
@@ -412,12 +412,13 @@ happiness
 
 A [supplementary Survey](https://docs.google.com/forms/d/e/1FAIpQLSeEhal7JdTy2I54o6cHtEyG285HMTbEy5pFmOmQVP23lHOxzg/viewform?usp=sf_link) is created with supplementary questions to section C of the ESS. See below for supplementary survey questions:
 
-![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey1.png)
-![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey2.png)
-![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey3.png)
-![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey4.png)
-![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey5.png)
-![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey6.png)
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey1.png){width=50%}
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey2.png){width=50%}
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey3.png){width=50%}
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey4.png){width=50%}
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey5.png){width=50%}
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey6.png){width=50%}
 
+\newpage
 
 # Reference
