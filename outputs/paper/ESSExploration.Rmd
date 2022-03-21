@@ -11,16 +11,34 @@ bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE, show_col_types = FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-# library(tidyr)
-# library(tidyverse)
-# library(dplyr)
-# library(knitr)
-# library(kableExtra)
-# install.packages('formattable')
-library(formattable)
+# install.packages("haven")
+# install.packages("tidyverse")
+# install.packages("dplyr")
+# install.packages("janitor")
+# install.packages("tidyr")
+# install.packages("ggplot2")
+# install.packages("lubridate")
+# install.packages("gridExtra")
+# install.packages("scales")
+# install.packages("knitr")
+library(haven)
+library(tidyverse)
+library(dplyr)
+library(janitor) # Helps clean datasets
+library(tidyr) # Helps make tidy datasets
+library(ggplot2)
+library(lubridate)
+library(gridExtra)
+library(scales)
+library(knitr)
+library(kableExtra)
 
-source("../../scripts/data_cleaning.R")
+knitr::opts_chunk$set(echo = FALSE)
+
+# set working directory to project directory: 
+# session > set working directory > To Project Directory 
+# Read in the raw data. 
+raw_data <- readr::read_csv("../../inputs/data/ESS9e03_1.csv")
 
 ```
 # Introduction
@@ -29,7 +47,7 @@ The European Social Survey (ESS), developed in 1995 was created to measure socia
 
 Since its establishment, the ESS won the Descartes Prize for Research & Science communication in 2005 and awarded the European Research Infrastructure Consortium (ERIC) in 2013 thus becoming a legal entity recognized by governments of the participating countries. Data collected by ESS is used across the world to not only advance scientific discussions but also to improve the quality of survey methodology and the improve the data collection methods and to develop a better understanding on social sciences in terms of measuring, data collection and in doing so promote positive change around the world (https://www.europeansocialsurvey.org/about/ ).
 
-```{r subjectiveQuestionsTable, include=FALSE, show_col_types = FALSE}
+```{r, echo=FALSE, warning=FALSE, show_col_types = FALSE}
 question_code <- c("C1",
              "C7",
              "C9",
@@ -60,11 +78,19 @@ question_text <- c("Taking all things together, how happy would you say you are?
 country_codes_df <- data.frame(question_code, question_text)
 names(country_codes_df) <- c("Question Code", "Question Text")
 country_codes_df <- country_codes_df[,1:2]
-formattable(country_codes_df)
+#formattable(country_codes_df)
 
 ```
 
- 
+```{r subjectiveQuestionsTable, echo=FALSE, warning=FALSE,show_col_types = FALSE}
+country_codes_df %>% 
+  kable(
+    caption = "Questions",
+    align = 'c'
+  ) %>%
+  kable_styling(latex_options = "HOLD_position", font_size = 6.5)
+```
+
  
 # Questionaire Discussion
 
@@ -78,10 +104,108 @@ Furthermore, there are also some questions which require a binary response (yes 
 
 Along with some shortcomings discussed above, there is flexibility in this questionnaire because it provides a wide range of options for the respondent to choose from. This limits the chances of there being any common options left out. In addition to this, various questions, including C19, C21, C23, C24, C25, C28, C30 (refer to table \@ref(tab:subjectiveQuestionsTable)) also allow for the respondent to enter their own response if their response cannot be categorized among the provided options or if the question requires a response that will be different for each person such as C24 asking about a the year the respondent came to the particular country. Refer to table for the corresponding questions. 
 
+```{r, echo=FALSE, warning=FALSE,show_col_types = FALSE}
+# Removing columns where all values are NA
+reduced_data <- 
+  raw_data[ , colSums(is.na(raw_data)) < nrow(raw_data)]
 
-```{r happinessMap, include=FALSE, show_col_types = FALSE}
+# Get all the data related to Subjective well-being, social exclusion, religion,
+# national and ethnic identity
+europe_data <- select(raw_data, c(1:6, 115:200))
+
+# Write the Europe data to our raw data csv
+write_csv(
+  x=europe_data,
+  file = "../../inputs/data/raw_data.csv"
+)
+  
+# Clean names
+survey_data <-
+  read.csv("../../inputs/data/raw_data.csv")
+
+# Clear the memory of the raw and reduced data
+rm(raw_data)
+rm(reduced_data)
+
+
+# Recode the country name so that people can easily understand the meaning of the code
+# Info of the country code is obtained from https://www.iban.com/country-codes
+survey_data <-
+  survey_data %>%
+  mutate(
+    cntry = 
+      recode(
+        cntry,
+        'AT' = 'Austria',
+        'BE' = 'Belgium',
+        'BG' = 'Bulgaria',
+        'HR' = 'Croatia',
+        'CY' = 'Cyprus',
+        'CZ' = 'Czech Republic',
+        'DK' = 'Denmark',
+        'EE' = 'Estonia',
+        'FI' = 'Finland',
+        'FR' = 'France',
+        'DE' = 'Germany',
+        'GR' = 'Greece',
+        'HU' = 'Hungary',
+        'IE' = 'Ireland',
+        'IT' = 'Italy',
+        'IS' = 'Iceland',
+        'LV' = 'Latvia',
+        'LT' = 'Lithuania',
+        'SK' = 'Slovakia',
+        'SI' = 'Slovenia',
+        'ES' = 'Spain',
+        'GB' = 'UK',
+        'PT' = 'Portugal',
+        'PL' = 'Poland',
+        'NL' = 'Netherlands',
+        'SE' = 'Sweden',
+        'RS' = 'Serbia',
+        'NO' = 'Norway',
+        'ME' = 'Montenegro',
+        'CH' = 'Switzerland'
+      )
+  )
+
+```
+
+
+
+```{r, echo=FALSE, warning=FALSE,show_col_types = FALSE}
+# get the data of the cntry happiness and summarise them with their mean
+# rename cntry to region
+cntry_happiness <- subset(survey_data, select = c(cntry, happy))
+mapping <- 
+  cntry_happiness %>%
+  drop_na(happy) %>%
+  group_by(cntry) %>%
+  summarise_at(vars(happy), list(score = mean)) %>%
+  rename(region = cntry)
+
+# generate the world and left join it with our mapping data frame
+mapdata <- map_data("world")
+#view(mapdata)
+mapdata <- left_join(mapdata, mapping, by='region')
+
+# filter those data that has no score
+mapdata1 <- mapdata %>% filter(!is.na(mapdata$score))
+
+# plot the map out and colour them
+happiness_map <- ggplot(mapdata1, aes(x=long, y=lat, group=group)) +
+  geom_polygon(aes(fill=score), color = "black") 
+
+happiness_map <- happiness_map +scale_fill_gradient(name = "score", low = "cyan", high = "purple", na.value = "grey50") +
+  theme_void()
+
+
+
+```
+
+
+```{r happinessMap, fig.cap="Density Map of the Happiness Level of different European Countries", echo=FALSE, warning=FALSE,show_col_types = FALSE}
 happiness_map
-
 ```
 
 While examining the social wellbeing from the ESS, using the Happiness Index is a natural compassion because the ESS also aims to access respondent’s happiness level. According to the Happiness Index; a comprehensive survey tool which accesses the happiness and wellbeing along with satisfaction and conditions of life (@HappinessIndexCitation). It ranks national happiness based on respondents’ responses and tries to correlate this to various life factors which could be responsible, including income, job satisfaction, education level and healthcare just to name a few. 
@@ -95,7 +219,24 @@ Although Denmark is ranked as the highest in terms of happiness, most other Euro
 
 # Appendix
 
-```{r happinessBar, include=FALSE, show_col_types = FALSE}
+```{r happinessBar, echo=FALSE, warning=FALSE,show_col_types = FALSE}
+# Graphs of how happy people are in different countries
+# get the mean of the score of different countries
+happiness <- 
+  survey_data %>%
+  drop_na(happy) %>%
+  group_by(cntry) %>%
+  summarise_at(vars(happy), list(score = mean)) %>%
+  ggplot(mapping = aes(x=cntry, y=score)) +
+  geom_bar(stat = "identity", width = 0.6, color="darkgoldenrod", fill="darkgoldenrod1") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(size = 10)) +
+  coord_flip() +
+  labs(x="Countries", y="Level of Happiness")
+  
 happiness
 
 ```
+
+
+# Reference
