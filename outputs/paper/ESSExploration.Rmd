@@ -86,7 +86,7 @@ country_codes_df <- country_codes_df[,1:2]
 country_codes_df %>% 
   kable(
     caption = "Questions",
-    align = 'c'
+    align = 'l'
   ) %>%
   kable_styling(latex_options = "HOLD_position", font_size = 6.5)
 ```
@@ -249,8 +249,15 @@ ggplot(s_data, aes(x="", y=Freq, fill=lbls)) +
   geom_bar(stat="identity", width=1) +
   coord_polar("y", start=0) +
   theme_minimal() +
-  labs(x="", y="")
+  labs(x="", y="", title = "How Often People Meet with Friends, Relatives or Colleagues")
+
+(858/sum(s_data$Freq) * 100)
 ```
+## Social Meetings
+
+ESS also collects data on how frequently people meet up socially with their friends, relatives and colleagues, results of the findings are summarized in \@ref(fig:socialPieChart). From this figure, over a quarter of all respondents take part is social meetups several times per week, followed 
+closely by several times a month and once a week. Close to 75% of all respondents engage in some form of social gathering at least once per week (from atleast once per day to several times per week). In contrast, Less than a quarter meet up at most once per month; among this quarter, under 2% don't meet up at all. On a whole, most respondents meet up in social gatherings fairly frequently across all members of participating in the ESS.
+
 
 ## Emotional attachment
 
