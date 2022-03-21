@@ -99,7 +99,40 @@ country_codes_df %>%
   kable_styling(latex_options = "HOLD_position", font_size = 6.5)
 ```
 
- 
+# Survey Methodology
+## Features
+Core sections in the Europe Social Survey (ESS) are designed as a time series to monitor the change in attitudes and values across Europe. The questions range between various topics of interest in social sciences with a comprehensive set of socio-structural variables. For this paper, we will be focusing on the Questions C1 – C42. This core module features subjective wellbeing, social exclusion, crime, religion, perceived discrimination, national and ethnic identity, political sentiments and voting intentions in EU referendum. 
+
+All of the core sections in the source questionnaire provided by the ESS [@ESSQuestionnaire] are detailed below:
+* A1 – A6: Media use; Internet use; social trust.
+* B1 – B43: Politics including political interest, trust, electoral and other forms of participation, party allegiance, socio-political orientations, immigration.
+* C1 – C42: Subjective wellbeing, social exclusion, crime, religion, perceived discrimination, national and ethnic identity, test questions (political sentiments), vote intention in EU referendum.
+* F1 – F61: Socio-demographic profile including household composition, sex, age, marital status, type of area, education & occupation of respondent, partner, parents, union membership, income, and ancestry.
+* H: Human values scale.
+* I: Test Questions (social situation and reaction)
+
+## Sampling Population
+All participating countries in the ESS must aim for a sample size of at least 1500 if they have a population of at least 2 million and a sample size of at least 800 if they have a population less than 2 million. The target population is including all persons of age 15 and upwards within private households of a participating country, regardless of their nationality, citizenship, or language. The ES Sampling Guidelines [@ESSGuidelines] provide detailed explanations to remove any ambiguity in defining the target population.
+When determining age in a survey design, the calendar type and time of the year are crucial. We assume the World Calendar (Gregorian Calendar) is used here and the legal age of 15 is defined at the beginning of the survey year on September 1st if the sample is from the register or at the day of interview selection. 
+ESS defines the term “private household” as any one person or group of people living in the same dwelling unit with its own lockable front door. Each “dwelling unit” excludes basic facilities that could be shared with occupants of other dwelling units. To put simply, a bedroom that is self-contained. 
+Lastly, to account for residents entering and leaving the country, a 6-months threshold is in place. People who are away for less than 6 months are included and people who are, or will be, away for 6 months or longer will not be included.
+
+## Sampling Method
+The ESS utilizes a mixture of cluster and stratified sampling by dividing the European population into their respective participating countries with strict random probability methods, which implies that every member of the ESS target population within a participating country should have a disclosed probability greater than zero of being selected. That also means quota sampling is strictly prohibited due to its non-probabilistic nature (which is usually used in time and resource limited projects but not in the case of ESS)
+ESS also assumes no associations between selection probabilities and survey variables. Associations may improve precision of certain estimates and worsen precision of others. By assuming of no association, this gives a sort of “averaging” effect for statistical precision. 
+
+## Strengths
+The ESS survey design has done an effective job in asking applicable questions. For instance, C13 asks “Have you ever considered yourself as belonging to any particular religion or denomination?” If the respondent answers Yes, then the respondent will be directed to C14 to ask which religion specifically (e.g., Roman Catholic, Protestant, Islamic, etc.). If the respondent answers No, then the respondent will skip C14 as it wouldn’t be relevant question to ask for a specific religion if the respondent isn’t religious in the first place. This design choice ensures efficiency and logical flow in the survey. 
+	An interesting design choice of the survey is prompts that instruct the respondent to read questions out loud. By doing so, the survey can invoke desired sentiments that the survey desires to capture. It is not a common implementation but also helps the respondents understand the question better and enforce the accuracy of their answers. 
+
+## Weaknesses
+There are some notable weaknesses in the source questionnaire. Many questions that are asked on the ESS utilizes a rating scale which converts opinions into numerical values that would be easy to compute for analysis. The disadvantage would be the rating is subjective and can be interpreted differently by each respondent, leading to inaccurate measurements in our data.
+Since the ESS is a census after all and the survey coverage is enormous, this only allows for closed-form questions where respondents are restricted to only multiple choice. This filters out new insights of the respondents’ minds that could potentially lead to improved or new questions to the survey which is reasonable for the purpose of a census but still forces the respondents to respond a certain way. At least to remedy inaccuracies that could occur in forced responses, “refusal” and “don’t know” choices are included. 
+Another point of weakness to note is the switch between statements and questionings from C32 to C40 which could cause inconsistency in the survey’s formatting. These questions take the form of statements as we see in C33: “The government in [country] protects citizens against poverty.” The survey attempts to follow-up with an anonymous question later such as C36 that asks, “please tell me to what extent you think the government in [country] protects citizens against poverty?” We can also note the inconsistent multiple-choice scale and page-formatting as well as the sheer number of footnotes, which all could factor in confusing respondents. 
+
+## How Non-Responses are Handled
+The ESS classifies non-responses as “refusals”, “non-contacts” or” ineligibles”. In the case of non-response, the ESS does not allow substitution of non-responding households or individuals which entails another household or family member volunteers to take the survey in place of the respondent. The minimum target response rate is 70 percent and in pursuit of these higher response rates, the ESS takes steps in monitoring fieldwork, training interviewers to better obtain cooperation, provide flexible times, and creating incentives for respondents. Higher response rates help minimize the probability of non-response bias, and post-stratification weights are applied to account for unequal representation of strata. Further analysis on strata will better guide to balancing the response rate across any underrepresented subgroups in future rounds. 
+
 # Questionaire Discussion
 
 Some questions present in the European Social Survey (ESS) aim to quantify qualitative measures such as those asking about happiness and emotions. Each respondent can select from a scale of 00-10 and they also have the option for “refusal” or “don’t know”. The benefit for the latter two options provides a convenience because all questions responded with “refusal” can be discarded. A better option for “refusal” is “Don’t know” because participants are more likely to respond with a “Don’t know” as compared to a “refusal”. A benefit to this is that this particular question can be ignored rather than discarding all information from all questions for a particular respondent (@IncludeNeutralPointInQuestionsCitation).
