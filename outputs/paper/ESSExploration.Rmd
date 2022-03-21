@@ -221,7 +221,6 @@ Although Denmark is ranked as the highest in terms of happiness, most other Euro
 
 In contrast to above, Bulgaria least happy country in the ESS because not only is it one of the poorest countries in the world with a Gross Domestic Product (GDP) per capita as 12.77 Euros. Currently 65% of the population is unable to cover the living expenses because of a high indebtedness of state-owned energy companies as well as poor infrastructure @BulgariaLowGDPCitation ). Bulgaria also has one of the smallest populations in Europe but over the past decade the population has declined by more than 11% as determined by Bulgaria’s National Statistical Institute (@BulgariaDecliningPopulationCitation). The low GDP combined with a declining population due to a low birthrate has led to an increasingly low socioeconomic score. This is potentially dangerous for a countries economic and demographic growth because there are less newborns to replace the aging workforce, which is another factor reducing the GDP.
 
-## Social gatherings
 
 ```{r, echo=FALSE, warning=FALSE,show_col_types = FALSE}
 # How often socially meet with friends, relatives or colleagues
@@ -244,6 +243,11 @@ s_data <- subset(s_data, select = c(lbls, Freq))
 
 ```
 
+## Social Meetings
+
+ESS also collects data on how frequently people meet up socially with their friends, relatives and colleagues, results of the findings are summarized in figure \@ref(fig:socialPieChart). From this figure, over a quarter of all respondents take part is social meetups several times per week, followed 
+closely by several times a month and once a week. Close to 75% of all respondents engage in some form of social gathering at least once per week (from atleast once per day to several times per week). In contrast, Less than a quarter meet up at most once per month; among this quarter, under 2% don't meet up at all. On a whole, most respondents meet up in social gatherings fairly frequently across all members of participating in the ESS.
+
 ```{r socialPieChart, fig.cap="How often socially meet with friends, relatives or colleagues", echo=FALSE, warning=FALSE,show_col_types = FALSE}
 ggplot(s_data, aes(x="", y=Freq, fill=lbls)) +
   geom_bar(stat="identity", width=1) +
@@ -253,17 +257,12 @@ ggplot(s_data, aes(x="", y=Freq, fill=lbls)) +
 
 #(858/sum(s_data$Freq) * 100)
 ```
-## Social Meetings
 
-ESS also collects data on how frequently people meet up socially with their friends, relatives and colleagues, results of the findings are summarized in \@ref(fig:socialPieChart). From this figure, over a quarter of all respondents take part is social meetups several times per week, followed 
-closely by several times a month and once a week. Close to 75% of all respondents engage in some form of social gathering at least once per week (from atleast once per day to several times per week). In contrast, Less than a quarter meet up at most once per month; among this quarter, under 2% don't meet up at all. On a whole, most respondents meet up in social gatherings fairly frequently across all members of participating in the ESS.
 
 
 ## Emotional attachment
 
 Another important aspect that ESS examined is the emotional attachment of the people to their own countries and Europe. They examine this aspect as part of the national and ethics identity, we can tell from this data whether or not the citizens from this country are satisfied with their own government or not. People who do not support their own countries tend to be less emotional attached to them. Below we want to figure out how they feel and identity themselves about their sense of belongings to their countries and Europe. 
-
-As displayed in the two histograms in \@ref(fig:emotion), we can notice that mostly of the people are pretty attached to their own countries. The scale is from 1 to 10 with 1 being the least attached and 10 being the most attached. When it comes to their own countries, most of the responds were between 8-10 while the number of responds between 1-5 only take up a really small portion. However when it comes to Europe, the responds had a different trend. The number of responds between 8-10 was greatly decreased compared to their own countries. They tend to feel less emotionally attached to Europe, even though they are part of the European Nation, they do not seem to have a huge sense of belongings to Europe. Another observation we have noticed is the number of responds of "88" in the Europe histogram has an unusual raise, "88" refers to "Don't know" which means that some people never considered or classified themselves as European.
 
 ```{r, echo=FALSE, warning=FALSE,show_col_types = FALSE}
 # plot the graph of how emotionally attached to their countries and Europe
@@ -293,9 +292,12 @@ eu_emo <- emotional_attach %>%
 grid.arrange(country_emo, eu_emo, nrow=1)
 ```
 
-
+As displayed in the two histograms in figure \@ref(fig:emotion), we can notice that mostly of the people are pretty attached to their own countries. The scale is from 1 to 10 with 1 being the least attached and 10 being the most attached. When it comes to their own countries, most of the responds were between 8-10 while the number of responds between 1-5 only take up a really small portion. However when it comes to Europe, the responds had a different trend. The number of responds between 8-10 was greatly decreased compared to their own countries. They tend to feel less emotionally attached to Europe, even though they are part of the European Nation, they do not seem to have a huge sense of belongings to Europe. Another observation we have noticed is the number of responds of "88" in the Europe histogram has an unusual raise, "88" refers to "Don't know" which means that some people never considered or classified themselves as European.
 
 ## Religious
+
+Europe has always be famous for its long lasting religious culture, we can notice lots of buildings and places in Europe are influenced by different religion. For example Vatican City is one of the world's most famous city known for its catholic religion, it is where the head of all catholic churches, the pope, lives and the Roman Curia makes all the decisions including the elections.
+
 
 ```{r, echo=FALSE, warning=FALSE,show_col_types = FALSE}
 # get the data related to religious
@@ -362,9 +364,14 @@ past_reli <- religious %>%
   coord_flip()
 ```
 
-```{r religousGraph, echo=FALSE, warning=FALSE,show_col_types = FALSE}
+```{r reli, fig.cap="Religious or denomination belongings", echo=FALSE, warning=FALSE,show_col_types = FALSE}
 grid.arrange(current_reli, past_reli, nrow=2)
 ```
+
+When we take a look at figure \@ref(fig:reli), we can see that in the graph on people religion at present, majority of the people who have a religion or denomination belonging are Roman Catholic, with Protestant and Eastern Orthodox being the other two major sections, the rest of the options only take up a relatively small portion of the data. 
+
+However if we look at the graphs of people's religion or denomination belongings in the past, surprisingly most of the people do not have any religion or denomination belongings. Over 90% of the people participated in the survey were non-religious in the past, there are more than 40,000 people responded with "Not applicable", however the number dropped to 20,000 in the recent survey, so half of them started to become religious or have their own denomination belongings as they get older. This is an interesting phenomenon because we predicted that the portion of "Not applicable" should only take up a tiny portion, we will investigate more in the later section.
+
 
 \newpage
 
