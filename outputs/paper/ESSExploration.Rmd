@@ -47,6 +47,7 @@ The European Social Survey (ESS), developed in 1995 was created to measure socia
 
 Since its establishment, the ESS won the Descartes Prize for Research & Science communication in 2005 and awarded the European Research Infrastructure Consortium (ERIC) in 2013 thus becoming a legal entity recognized by governments of the participating countries. Data collected by ESS is used across the world to not only advance scientific discussions but also to improve the quality of survey methodology and the improve the data collection methods and to develop a better understanding on social sciences in terms of measuring, data collection and in doing so promote positive change around the world [@ESSAboutCitation].
 
+\newpage
 # Data
 
 ## Data Summary
@@ -94,14 +95,6 @@ country_codes_df <- country_codes_df[,1:2]
 
 ```
 
-```{r subjectiveQuestionsTable, echo=FALSE, warning=FALSE,show_col_types = FALSE}
-country_codes_df %>% 
-  kable(
-    caption = "Questions",
-    align = 'l'
-  ) %>%
-  kable_styling(latex_options = "HOLD_position", font_size = 6.5)
-```
 
 # Survey Methodology
 
@@ -110,12 +103,12 @@ country_codes_df %>%
 Core sections in the Europe Social Survey (ESS) are designed as a time series to monitor the change in attitudes and values across Europe. The questions range between various topics of interest in social sciences with a comprehensive set of socio-structural variables. For this paper, we will be focusing on the Questions C1 – C42. This core module features subjective wellbeing, social exclusion, crime, religion, perceived discrimination, national and ethnic identity, political sentiments and voting intentions in EU referendum. 
 
 All of the core sections in the source questionnaire provided by the ESS [@ESSQuestionnaire] are detailed below:
-* A1 – A6: Media use; Internet use; social trust.
-* B1 – B43: Politics including political interest, trust, electoral and other forms of participation, party allegiance, socio-political orientations, immigration.
-* C1 – C42: Subjective wellbeing, social exclusion, crime, religion, perceived discrimination, national and ethnic identity, test questions (political sentiments), vote intention in EU referendum.
-* F1 – F61: Socio-demographic profile including household composition, sex, age, marital status, type of area, education & occupation of respondent, partner, parents, union membership, income, and ancestry.
-* H: Human values scale.
-* I: Test Questions (social situation and reaction)
+\newline* A1 – A6: Media use; Internet use; social trust.
+\newline* B1 – B43: Politics including political interest, trust, electoral and other forms of participation, party allegiance, socio-political orientations, immigration.
+\newline* C1 – C42: Subjective wellbeing, social exclusion, crime, religion, perceived discrimination, national and ethnic identity, test questions (political sentiments), vote intention in EU referendum.
+\newline* F1 – F61: Socio-demographic profile including household composition, sex, age, marital status, type of area, education & occupation of respondent, partner, parents, union membership, income, and ancestry.
+\newline* H: Human values scale.
+\newline* I: Test Questions (social situation and reaction)
 
 ## Sampling Population
 
@@ -145,6 +138,16 @@ Another point of weakness to note is the switch between statements and questioni
 The ESS classifies non-responses as “refusals”, “non-contacts” or” ineligibles”. In the case of non-response, the ESS does not allow substitution of non-responding households or individuals which entails another household or family member volunteers to take the survey in place of the respondent. The minimum target response rate is 70 percent and in pursuit of these higher response rates, the ESS takes steps in monitoring fieldwork, training interviewers to better obtain cooperation, provide flexible times, and creating incentives for respondents. Higher response rates help minimize the probability of non-response bias, and post-stratification weights are applied to account for unequal representation of strata. Further analysis on strata will better guide to balancing the response rate across any underrepresented subgroups in future rounds. 
 
 # Questionaire Discussion
+
+```{r subjectiveQuestionsTable, echo=FALSE, warning=FALSE,show_col_types = FALSE}
+country_codes_df %>% 
+  kable(
+    caption = "Questions",
+    align = 'l'
+  ) %>%
+  kable_styling(latex_options = "HOLD_position", font_size = 6.5)
+```
+
 
 Some questions present in the European Social Survey (ESS) aim to quantify qualitative measures such as those asking about happiness and emotions. Each respondent can select from a scale of 00-10 and they also have the option for “refusal” or “don’t know”. The benefit for the latter two options provides a convenience because all questions responded with “refusal” can be discarded. A better option for “refusal” is “Don’t know” because participants are more likely to respond with a “Don’t know” as compared to a “refusal”. A benefit to this is that this particular question can be ignored rather than discarding all information from all questions for a particular respondent [@IncludeNeutralPointInQuestionsCitation].
 
@@ -222,7 +225,6 @@ survey_data <-
   )
 
 ```
-
 
 
 ```{r, echo=FALSE, warning=FALSE,show_col_types = FALSE}
@@ -421,8 +423,6 @@ When we take a look at figure \@ref(fig:reli), we can see that in the graph on p
 However if we look at the graphs of people's religion or denomination belongings in the past, surprisingly most of the people do not have any religion or denomination belongings. Over 90% of the people participated in the survey were non-religious in the past, there are more than 40,000 people responded with "Not applicable", however the number dropped to 20,000 in the recent survey, so half of them started to become religious or have their own denomination belongings as they get older. This is an interesting phenomenon because we predicted that the portion of "Not applicable" should only take up a tiny portion, we will investigate more in the later section.
 
 
-\newpage
-
 # Discussion based on our findings
 
 ## Meaure of Happiness
@@ -436,26 +436,40 @@ Although Denmark is ranked as the highest in terms of happiness, most other Euro
 In contrast to above, Bulgaria least happy country in the ESS because not only is it one of the poorest countries in the world with a Gross Domestic Product (GDP) per capita as 12.77 Euros. Currently 65% of the population is unable to cover the living expenses because of a high indebtedness of state-owned energy companies as well as poor infrastructure @BulgariaLowGDPCitation ). Bulgaria also has one of the smallest populations in Europe but over the past decade the population has declined by more than 11% as determined by Bulgaria’s National Statistical Institute [@BulgariaDecliningPopulationCitation]. The low GDP combined with a declining population due to a low birthrate has led to an increasingly low socioeconomic score. This is potentially dangerous for a countries economic and demographic growth because there are less newborns to replace the aging workforce, which is another factor reducing the GDP.
 
 # Survey Privacy and Ethics
+
 It’s of upmost importance to protect the interests of subjects in any statistical research. All participation in the ESS is voluntary where any questions are answered at the respondent’s discretion and may be stopped at any time without explanation. All collected information are treated with strict confidentiality in accordance with the EU’s General Data Protection Regulation (GDPR) and national data protection laws. The fieldwork organization will remove all associations of personal information such as name and address from survey responses then purging said personal information when the ESS data is published (no later than June 2020). The ESS data will be securely stored for an indefinite period and made available for future scientific research regarding Europe social sciences. While there is a possibility certain combination of information can identify a participant, the ESS makes every effort to avoid that possibility in the results of the survey and any following publications. 
 The ESS also subscribes to the Declaration on Professional Ethics of the International Statistical Institute. [@EthicsDeclaration] There are 12 ethical principles that are stated as follows during the pursuit of public interest:
-* Pursuing Objectivity
-* Clarifying Obligations
-* Assessing Alternatives Impartially
-* Conflicting Interests
-* Avoiding Pre-empted Questions
-* Guarding Privileged Information
-* Exhibiting Professional Competence
-* Maintaining Confidence in Statistics
-* Exposing and Reviewing Methods and Findings
-* Communicating Ethical Principles
-* Bearing Responsibility for the Integrity of the Discipline
-* Protecting the Interests of Subjects
-ESS has put a substantial amount of effort to oblige to this declaration and its principles. Transparent objectives, flow charts of its survey design process, sample guidelines detailing their target population and methods, and comprehensive lists of contacts are among the many commitments they have made to ensure ethical use of ESS data.
+\newline* Pursuing Objectivity
+\newline* Clarifying Obligations
+\newline* Assessing Alternatives Impartially
+\newline* Conflicting Interests
+\newline* Avoiding Pre-empted Questions
+\newline* Guarding Privileged Information
+\newline* Exhibiting Professional Competence
+\newline* Maintaining Confidence in Statistics
+\newline* Exposing and Reviewing Methods and Findings
+\newline* Communicating Ethical Principles
+\newline* Bearing Responsibility for the Integrity of the Discipline
+\newline* Protecting the Interests of Subjects
+\newline ESS has put a substantial amount of effort to oblige to this declaration and its principles. Transparent objectives, flow charts of its survey design process, sample guidelines detailing their target population and methods, and comprehensive lists of contacts are among the many commitments they have made to ensure ethical use of ESS data.
 
 \newpage
 
 
 # Appendix
+
+## Supplementary Survey 
+
+A [supplementary Survey](https://docs.google.com/forms/d/e/1FAIpQLSeEhal7JdTy2I54o6cHtEyG285HMTbEy5pFmOmQVP23lHOxzg/viewform?usp=sf_link) is created with supplementary questions to section C of the ESS. See below for supplementary survey questions:
+
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey1.png){width=50%}
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey2.png){width=50%}
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey3.png){width=50%}
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey4.png){width=50%}
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey5.png){width=50%}
+![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey6.png){width=50%}
+
+## Supplementary Survey
 
 ```{r happinessBar, echo=FALSE, warning=FALSE,show_col_types = FALSE}
 # Graphs of how happy people are in different countries
@@ -470,22 +484,11 @@ happiness <-
   theme_minimal() +
   theme(axis.text.x = element_text(size = 10)) +
   coord_flip() +
-  labs(x="Countries", y="Level of Happiness")
+  labs(x="Countries", y="Level of Happiness", title = "Level of happiness of people in European countries") 
   
 happiness
 
 ```
-
-## Supplementary Survey 
-
-A [supplementary Survey](https://docs.google.com/forms/d/e/1FAIpQLSeEhal7JdTy2I54o6cHtEyG285HMTbEy5pFmOmQVP23lHOxzg/viewform?usp=sf_link) is created with supplementary questions to section C of the ESS. See below for supplementary survey questions:
-
-![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey1.png){width=50%}
-![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey2.png){width=50%}
-![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey3.png){width=50%}
-![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey4.png){width=50%}
-![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey5.png){width=50%}
-![Supplementary Suevey Question set 1](../../inputs/supplementarySurveyImages/suppSurvey6.png){width=50%}
 
 \newpage
 
