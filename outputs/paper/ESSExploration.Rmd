@@ -435,6 +435,23 @@ Although Denmark is ranked as the highest in terms of happiness, most other Euro
 
 In contrast to above, Bulgaria least happy country in the ESS because not only is it one of the poorest countries in the world with a Gross Domestic Product (GDP) per capita as 12.77 Euros. Currently 65% of the population is unable to cover the living expenses because of a high indebtedness of state-owned energy companies as well as poor infrastructure @BulgariaLowGDPCitation ). Bulgaria also has one of the smallest populations in Europe but over the past decade the population has declined by more than 11% as determined by Bulgaria’s National Statistical Institute [@BulgariaDecliningPopulationCitation]. The low GDP combined with a declining population due to a low birthrate has led to an increasingly low socioeconomic score. This is potentially dangerous for a countries economic and demographic growth because there are less newborns to replace the aging workforce, which is another factor reducing the GDP.
 
+## Survey Privacy and Ethics
+It’s of upmost importance to protect the interests of subjects in any statistical research. All participation in the ESS is voluntary where any questions are answered at the respondent’s discretion and may be stopped at any time without explanation. All collected information are treated with strict confidentiality in accordance with the EU’s General Data Protection Regulation (GDPR) and national data protection laws. The fieldwork organization will remove all associations of personal information such as name and address from survey responses then purging said personal information when the ESS data is published (no later than June 2020). The ESS data will be securely stored for an indefinite period and made available for future scientific research regarding Europe social sciences. While there is a possibility certain combination of information can identify a participant, the ESS makes every effort to avoid that possibility in the results of the survey and any following publications. 
+The ESS also subscribes to the Declaration on Professional Ethics of the International Statistical Institute. [@EthicsDeclaration] There are 12 ethical principles that are stated as follows during the pursuit of public interest:
+* Pursuing Objectivity
+* Clarifying Obligations
+* Assessing Alternatives Impartially
+* Conflicting Interests
+* Avoiding Pre-empted Questions
+* Guarding Privileged Information
+* Exhibiting Professional Competence
+* Maintaining Confidence in Statistics
+* Exposing and Reviewing Methods and Findings
+* Communicating Ethical Principles
+* Bearing Responsibility for the Integrity of the Discipline
+* Protecting the Interests of Subjects
+ESS has put a substantial amount of effort to oblige to this declaration and its principles. Transparent objectives, flow charts of its survey design process, sample guidelines detailing their target population and methods, and comprehensive lists of contacts are among the many commitments they have made to ensure ethical use of ESS data.
+
 
 \newpage
 
