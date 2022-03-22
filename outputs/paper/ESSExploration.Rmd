@@ -257,15 +257,13 @@ happiness_map <- happiness_map +scale_fill_gradient(name = "score", low = "cyan"
 
 ```
 
+# Findings
+
+## Level of happiness
 
 ```{r happinessMap, fig.cap="Density Map of the Happiness Level of different European Countries", echo=FALSE, warning=FALSE,show_col_types = FALSE}
 happiness_map
 ```
-
-
-# Findings
-
-## Level of happiness
 
 A significant measure for a person’s social wellbeing and quality of life is their perceived happiness and as such, it was the first question asked in section C of the ESS (refer to C1 in table \@ref(tab:subjectiveQuestionsTable).  From the map in figure \@ref(fig:happinessMap), the majority of European countries who participated in the ESS are very happy with a score of 7 of greater with a few outliers scoring less than 7. For those 3 countries that scored less than 7, all of them have a score between 5 and 7. From this we can interpret that the vast majority of European countries are fairly happy with a few outliers that are not; all of which are located in south eastern Europe. 
 
