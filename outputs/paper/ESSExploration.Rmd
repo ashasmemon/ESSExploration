@@ -3,7 +3,7 @@ title: "ESS Exploration *Need to Change*"
 author: Basil Wong, Tamsen Yau, Ashas Memon
 thanks: "Code and data are available at: https://github.com/ashasmemon/ESSExploration"
 date: "`r format(Sys.time(), '%d %B %Y')`"
-abstract: "This report aims to examine section C; Subjective well-being, social exclusion, religion, national and ethnic identity on the 2018 European Social Survey (ESS). It discusses the survey methodology and examines aspects including (list aspects being explored) and their correlation to European countries.  As an extension, a sample questionnaire is also included to further explore the impact of age and gender on the subjective-welbeing."
+abstract: "This report aims to examine section C; Subjective well-being, social exclusion, religion, national and ethnic identity on the 2018 European Social Survey (ESS). It discusses the survey methodology and examines aspects including happiness, social interactions, national attachment and relegion along with their correlation to European countries.  As an extension, a sample questionnaire is also included to further explore the impact of age and gender on the subjective-welbeing."
 output:
   bookdown::pdf_document2
 toc: FALSE
