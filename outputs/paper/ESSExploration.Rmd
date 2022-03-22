@@ -342,7 +342,7 @@ grid.arrange(country_emo, eu_emo, nrow=1)
 
 As displayed in the two histograms in figure \@ref(fig:emotion), we can notice that mostly of the people are pretty attached to their own countries. The scale is from 1 to 10 with 1 being the least attached and 10 being the most attached. When it comes to their own countries, most of the responds were between 8-10 while the number of responds between 1-5 only take up a really small portion. However when it comes to Europe, the responds had a different trend. The number of responds between 8-10 was greatly decreased compared to their own countries. They tend to feel less emotionally attached to Europe, even though they are part of the European Nation, they do not seem to have a huge sense of belongings to Europe. Another observation we have noticed is the number of responds of "88" in the Europe histogram has an unusual raise, "88" refers to "Don't know" which means that some people never considered or classified themselves as European.
 
-## Religious
+## Religion
 
 Europe has always be famous for its long lasting religious culture, we can notice lots of buildings and places in Europe are influenced by different religion. For example Vatican City is one of the world's most famous city known for its catholic religion, it is where the head of all catholic churches, the pope, lives and the Roman Curia makes all the decisions including the elections.
 
