@@ -1,5 +1,5 @@
 ---
-title: "Subjective Wellbeing, Social Interactions and Ethnic Identity Amoung European Countries"
+title: "Subjective Wellbeing, Social Interactions and Ethnic Identity Among European Countries"
 author: Basil Wong, Tamsen Yau, Ashas Memon
 thanks: "Code and data are available at: https://github.com/ashasmemon/ESSExploration"
 date: "`r format(Sys.time(), '%d %B %Y')`"
