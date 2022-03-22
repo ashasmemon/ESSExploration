@@ -441,7 +441,8 @@ Furthermore, social interactions have been shown to reduce the negative effects 
 
 The data explored here is from 2018 data and social interactions and been restricted for a few years due the COVID-19 pandemic and lockdown. It is unclear as to how this has impacted the social wellbeing of the European countries because there is no data available as of yet. But given the studies by the United Nations [@QualityOfLifeCitation], we would expect the overall wellbeing to go down because of this prolonged period of no social interactions. That being said, there is the possibility of video calls among groups of people, but its impact has yet to be determined as there is no recent data present by ESS.
 
-## waning Emotional Attachment to European Identity
+## Waning Emotional Attachment to European Identity
+
 From the results in Figure 3, there’s been waning attachments among citizens of Europe to identify themselves as Europeans and stronger sentiments to their own countries in recent years. With the United Kingdom’s formal withdrawal European Union and raising advocacy for withdrawal in other member states, it is no surprise why the European identity is diminishing. 
 
 We can take a closer look at why the United Kingdom withdrew from the European Union. More commonly known as “Brexit” [@Brexit], sovereignty was one of the prominent reasons for this decision as the rise of nationalism is being spread worldwide. There’s growing mistrust in EU where many believed that such an institution no longer serves a purpose and takes away control from individual countries. The Europe immigration crisis was a trigger for this as the people of UK wanted to regain control over their own immigration policy and maintain their borders.
