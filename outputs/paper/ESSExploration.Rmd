@@ -1,5 +1,5 @@
 ---
-title: "Subjective Wellbeing, Social Interactions and ethnic Identity Amoung European Countries"
+title: "Subjective Wellbeing, Social Interactions and Ethnic Identity Amoung European Countries"
 author: Basil Wong, Tamsen Yau, Ashas Memon
 thanks: "Code and data are available at: https://github.com/ashasmemon/ESSExploration"
 date: "`r format(Sys.time(), '%d %B %Y')`"
@@ -432,6 +432,16 @@ As displayed on the European map displayed above \@ref(fig:happinessMap), Denmar
 Although Denmark is ranked as the highest in terms of happiness, most other European countries are following close behind, including Switzerland, Sweden and Iceland. An overall high ranking for these countries can is attributed to several factors including income, job satisfaction and healthcare.
 
 In contrast to above, Bulgaria least happy country in the ESS because not only is it one of the poorest countries in the world with a Gross Domestic Product (GDP) per capita as 12.77 Euros. Currently 65% of the population is unable to cover the living expenses because of a high indebtedness of state-owned energy companies as well as poor infrastructure @BulgariaLowGDPCitation ). Bulgaria also has one of the smallest populations in Europe but over the past decade the population has declined by more than 11% as determined by Bulgaria’s National Statistical Institute [@BulgariaDecliningPopulationCitation]. The low GDP combined with a declining population due to a low birthrate has led to an increasingly low socioeconomic score. This is potentially dangerous for a countries economic and demographic growth because there are less newborns to replace the aging workforce, which is another factor reducing the GDP.
+
+## Social Interactions on Quality of Life
+
+Ones quality of life is a strong indication for their social wellbeing, one aspect used to measure this is using social interactions among friends, relatives and coworkers. Aside from just socializing just as a way to fulfill human needs, more frequent and profound interactions are associated with better health and improved social networking such as finding jobs. In particular, having a form of social support in times of need; whether that is family or friends is a key factor in describing happiness. Social interactions is one of six indicators used by United Nations’ World happiness report in accessing a person’s happiness and by extension their social wellbeing [@QualityOfLifeCitation]. This supports the findings in figure \@ref(fig:happinessMap) and \@ref(fig:socialPieChart), showing that the majority of European individuals engage in social interactions at least one per week which correlates to the vast majority of those countries with a high happiness score as determined by ESS.
+
+Furthermore, social interactions have been shown to reduce the negative effects of stress in an individual and individuals with frequent social interactions with their friends and family have higher subjective wellbeing [@SubjectiveWellbeingPaperCitation]. It is important to note that less than one third of Denmark’s adult population gets together with family at least once a week [@SubjectiveWellbeingPaperCitation] but even then, Denmark has the highest happiness score among all the countries in ESS, see figure \@ref(fig:happinessMap). This finding is not at all surprising since Denmark, including the other Baltic countries have very well-established social programs including high minimum wages and free healthcare to name a few.
+
+The data explored here is from 2018 data and social interactions and been restricted for a few years due the COVID-19 pandemic and lockdown. It is unclear as to how this has impacted the social wellbeing of the European countries because there is no data available as of yet. But given the studies by the United Nations [@QualityOfLifeCitation], we would expect the overall wellbeing to go down because of this prolonged period of no social interactions. That being said, there is the possibility of video calls among groups of people, but its impact has yet to be determined as there is no recent data present by ESS.
+
+
 
 # Survey Privacy and Ethics
 
